@@ -7,13 +7,17 @@ function checkGuess() {
   let guess = Number(document.getElementById("guess").value);
   let numGuess = parseInt(guess);
 
-  if (0 < numGuess > 100 && number !== numGuess) {
-    resultSpan.innerText = "Wrong";
-  } else if (number === numGuess) {
-    resultSpan.innerText = "You got it";
-  } else {
-    resultSpan.innerText = "Number is not in range";
-  }
+  while (numGuess !== NaN) {
+    if (numGuess < 1 || numGuess > 100) {
+        prompt("Number is not in range, try again.");
+    } else if (numGuess !== number) {
+        prompt("Wrong number, try again.")
+    } else if (number === numGuess) {
+        prompt("You got it!")
+    }
+}
+
+
 };
 
 button.addEventListener("click", checkGuess);
